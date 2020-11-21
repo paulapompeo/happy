@@ -31,14 +31,22 @@ export class createOrphanages1605922977620 implements MigrationInterface {
         },
         {
           name: 'about',
-          type: 'text'
-        }
-      ]
+          type: 'text',
+        },
+        {
+          name: 'instructions',
+          type: 'text',
+        },
+        {
+          name: 'open_on_weekends',
+          type: 'boolean',
+          default: false,
+        },
+      ],
     }))
-  } //42min
-
-   public async down(queryRunner: QueryRunner): Promise<void> {
-  
   }
 
+   public async down(queryRunner: QueryRunner): Promise<void> {
+    await queryRunner.dropTable('orphanages')
+  }
 }
